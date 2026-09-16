@@ -528,3 +528,60 @@ footer {
     font-size: 11px;
     color: var(--text-muted);
 }
+
+/* ========================================= FOOTER ========================================= */
+.main-footer {
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 30px;
+    background-color: var(--surface);
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 11px;
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-left strong {
+    color: var(--primary);
+    font-size: 12px;
+}
+
+.footer-left span {
+    padding-left: 8px;
+    border-left: 1px solid var(--border);
+}
+
+.footer-center {
+    text-align: center;
+}
+
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-right span+span {
+    padding-left: 15px;
+    border-left: 1px solid var(--border);
+}
+
+/* ========================================= RESPONSIVIDADE ========================================= */
+@media (max-width: 700px) {
+    .main-footer {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .footer-center {
+        display: none;
+    }
+}
