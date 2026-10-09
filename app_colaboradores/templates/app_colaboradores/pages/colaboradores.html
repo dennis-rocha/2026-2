@@ -4,6 +4,58 @@
 
 {% block content %}
     <h1>Colaboradores</h1>
-    <p>testeeeeeeeeee</p>
-    <h2>Olaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h2>
+    <section>
+        <div>
+            <!-- filtros e botão de cadastro -->
+            <form>
+                <input type="text" placeholder="Filtrar por nome..." name="q_nome">
+                <button type="submit">Filtrar</button>
+                {% if limpar_filtro %}
+                    <a href="/">Limpar filtro</a>
+                {% endif %}
+            </form>
+            <button type="button" onclick="window.location.href='{% url 'cadastrar_colaborador' %}'">Cadastrar Colaborador</button>
+        </div>
+        <div>
+            <!-- Listagem de colaboradores -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>CPF</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aqui você pode iterar sobre os colaboradores e exibir suas informações -->
+                    {% for colaborador in colaboradores %}
+                        <tr>
+                            <td>{{ colaborador.nome }}</td>
+                            <td>{{ colaborador.email }}</td>
+                            <td>{{ colaborador.cpf_formatado }}</td>
+                            <td>
+                                <button type="button" onclick="window.location.href='{% url 'atualizar_colaborador' colaborador.id %}'">Editar</button>
+                                <button type="button" onclick="excluirColaborador({{ colaborador.id }})">Excluir</button>
+                            </td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="4">Nenhum colaborador cadastrado.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        function excluirColaborador(id) {
+            if (confirm("Tem certeza que deseja excluir este colaborador?")) {
+                window.location.href = "{% url 'remover_colaborador' 0 %}".replace('0', id);
+            }
+        }
+    </script>
 {% endblock %}
