@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     
     #My Apps
     "app_colaboradores",
+    "app_empresas",
 ]
 
 MIDDLEWARE = [
