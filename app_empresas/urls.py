@@ -8,7 +8,7 @@ urlpatterns = [
     # path('cadastro_colaborador/', views.cadastro_colaborador, name='cadastrar_colaborador'),
     
     # # Read
-    # path('', views.home, name='empresas'),
+    path('', views.listar_empresas, name='empresas'),
     
     # # Update
     # path('atualizar_colaborador/<int:id>/', views.atualizar_colaborador, name="atualizar_colaborador"),
