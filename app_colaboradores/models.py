@@ -9,6 +9,7 @@ class ColaboradorModels(models.Model):
     cpf = models.CharField(max_length=11, unique=True)
     data_nascimento = models.DateField()
     email = models.EmailField(max_length=100, unique=True)
+    empresa = models.ForeignKey('app_empresas.EmpresaModels', on_delete=models.CASCADE, related_name='colaboradores')
     
     def __str__(self):
         return f"Colaborador({self.nome}, {self.cpf})"
