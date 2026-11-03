@@ -1,0 +1,29 @@
+{% extends "app_empresas/base.html" %}
+
+{% block title %}Empresas | teste{% endblock %}
+
+{% block content %}
+    <h1>Cadastro de Empresa</h1>
+    <section>
+        <form method="post" action="{% url 'cadastrar_empresa' %}">
+            {% csrf_token %}
+            <div>
+                <label for="razao_social">Razão Social:</label>
+                <input type="text" id="razao_social" name="razao_social">
+            </div>
+            <div>
+                <label for="cnpj">CNPJ:</label>
+                <input type="text" id="cnpj" name="cnpj">
+            </div>
+            <div>
+                <label for="tipo">Tipo:</label>
+                <select id="tipo" name="tipo">
+                    {% for value, label in tipo_empresa %}
+                        <option value="{{ value }}">{{ label }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit">Cadastrar</button>
+        </form>
+    </section>
+{% endblock %}

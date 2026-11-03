@@ -1,0 +1,25 @@
+{% extends "app_empresas/base.html" %}
+
+{% block title %}Empresas | teste{% endblock %}
+
+{% block content %}
+    <h1>Atualizar de Empresa</h1>
+    <section>
+        <form method="post" action="{% url 'atualizar_empresa' empresa.id %}">
+            {% csrf_token %}
+            <div>
+                <label for="razao_social">Razão Social:</label>
+                <input type="text" id="razao_social" name="razao_social" value="{{ empresa.razao_social }}">
+            </div>
+            <div>
+                <label for="cnpj">CNPJ:</label>
+                <input type="text" id="cnpj" name="cnpj" value="{{ empresa.cnpj }}">
+            </div>
+            <div>
+                <label for="tipo">Tipo:</label>
+                <input type="text" id="tipo" name="tipo" value="{{ empresa.tipo }}">
+            </div>
+            <button type="submit">Atualizar</button>
+        </form>
+    </section>
+{% endblock %}
