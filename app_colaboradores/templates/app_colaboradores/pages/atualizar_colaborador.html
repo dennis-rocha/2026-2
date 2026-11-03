@@ -23,6 +23,14 @@
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" value="{{ colaborador.email }}">
             </div>
+            <div>
+                <label for="empresa">Empresa:</label>
+                <select id="empresa" name="empresa">
+                    {% for empresa in empresas %}
+                        <option value="{{ empresa.id }}" {% if empresa.id == colaborador.empresa.id %}selected{% endif %}>{{ empresa.razao_social }}</option>
+                    {% endfor %}
+                </select>
+            </div>
             <button type="submit">Atualizar</button>
         </form>
     </section>
