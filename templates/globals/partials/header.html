@@ -7,7 +7,8 @@
         <div class="header-divider"></div>
         <div class="user-info">
             <div class="user-avatar"> DR </div>
-            <div class="user-details"> <strong>Dennis Rocha</strong> <span>Administrador</span> </div>
+            <div class="user-details"> 
+                <strong>{% if request.user.is_authenticated %} {{ request.user.first_name }} {{ request.user.last_name }}{% else %} Usuário não autenticado {% endif %}</strong> <span>{% if request.user.is_staff %} Administrador {% elif request.user.is_authenticated %} Usuário Comum {% endif %}</span> </div>
         </div>
     </div>
 </header>

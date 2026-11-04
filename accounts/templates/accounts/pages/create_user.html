@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Criar usuário</h1>
+    <form action="{% url 'create_user' %}" method="post">
+        {% csrf_token %}
+        <div>
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" name="username" value="{{ username }}">
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="{{ email }}">
+        </div>
+        <div>
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" value="{{ password }}">
+        </div>
+        <button type="submit">Criar Usuário</button>
+    </form>
+</body>
+</html>
