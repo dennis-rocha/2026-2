@@ -1,9 +1,9 @@
-{% extends "app_empresas/base.html" %}
+{% extends "globals/base.html" %}
 
 {% block title %}Empresas | teste{% endblock %}
 
 {% block content %}
-    <h1>Atualizar de Empresa</h1>
+    <h1>Atualizar Empresa</h1>
     <section>
         <form method="post" action="{% url 'atualizar_empresa' empresa.id %}">
             {% csrf_token %}

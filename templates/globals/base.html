@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'app_colaboradores/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'globals/css/style.css' %}">
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    {% include 'app_colaboradores/partials/sidebar.html' %}
+    {% include 'globals/partials/sidebar.html' %}
     
     <section>
-        {% include 'app_colaboradores/partials/header.html' %}
+        {% include 'globals/partials/header.html' %}
         <main>
             {% block content %}{% endblock %}
         </main>
-        {% include 'app_colaboradores/partials/footer.html' %}
+        {% include 'globals/partials/footer.html' %}
     </section>
 
     {% block scripts %}{% endblock %}
