@@ -2,19 +2,19 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    # # CRUD
+    # CRUD
     
-    # # Create
-    # path('cadastro_colaborador/', views.cadastro_colaborador, name='cadastrar_colaborador'),
+    # Create
+    path('cadastro_empresa/', views.cadastro_empresa, name='cadastrar_empresa'),
     
-    # # Read
-    # path('', views.home, name='empresas'),
+    # Read
+    path('', views.home, name='empresas'),
     
-    # # Update
-    # path('atualizar_colaborador/<int:id>/', views.atualizar_colaborador, name="atualizar_colaborador"),
+    # Update
+    path('atualizar_empresa/<int:id>/', views.atualizar_empresa, name="atualizar_empresa"),
     
-    # # Delete
-    # path('remover_colaborador/<int:id>/', views.remover_colaborador, name='remover_colaborador'),
+    # Delete
+    path('remover_empresa/<int:id>/', views.remover_empresa, name='remover_empresa'),
     
     
 ]

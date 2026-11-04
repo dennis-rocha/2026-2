@@ -1,0 +1,61 @@
+{% extends "globals/base.html" %}
+
+{% block title %}Empresas | teste{% endblock %}
+
+{% block content %}
+    <h1>Empresas</h1>
+    <section>
+        <div>
+            <!-- filtros e botão de cadastro -->
+            <form>
+                <input type="text" placeholder="Filtrar por razão social..." name="q_razao_social" value="{{ request.GET.q_razao_social }}">
+                <button type="submit">Filtrar</button>
+                {% if limpar_filtro %}
+                    <a href="/">Limpar filtro</a>
+                {% endif %}
+            </form>
+            <button type="button" onclick="window.location.href='{% url 'cadastrar_empresa' %}'">Cadastrar Empresa</button>
+        </div>
+        <div>
+            <!-- Listagem de empresas -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Razão Social</th>
+                        <th>CNPJ</th>
+                        <th>Tipo</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aqui você pode iterar sobre os empresas e exibir suas informações -->
+                    {% for empresa in empresas %}
+                        <tr>
+                            <td>{{ empresa.razao_social }}</td>
+                            <td>{{ empresa.cnpj }}</td>
+                            <td>{{ empresa.tipo }}</td>
+                            <td>
+                                <button type="button" onclick="window.location.href='{% url 'atualizar_empresa' empresa.id %}'">Editar</button>
+                                <button type="button" onclick="excluirEmpresa({{ empresa.id }})">Excluir</button>
+                            </td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="5">Nenhum empresa cadastrado.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        function excluirEmpresa(id) {
+            if (confirm("Tem certeza que deseja excluir este empresa?")) {
+                window.location.href = "{% url 'remover_empresa' 0 %}".replace('0', id);
+            }
+        }
+    </script>
+{% endblock %}
